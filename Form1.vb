@@ -407,11 +407,22 @@ Public Class Form1
         For Each candidate In candidates.Distinct(StringComparer.OrdinalIgnoreCase)
             If File.Exists(candidate) Then
                 Dim version = FileVersionInfo.GetVersionInfo(candidate).FileVersion
-                If Not String.IsNullOrWhiteSpace(version) Then Return version.Trim()
+                If Not String.IsNullOrWhiteSpace(version) Then Return FormatOniSplitVersion(version)
             End If
         Next
 
         Return "version unavailable"
+    End Function
+
+    Private Shared Function FormatOniSplitVersion(versionText As String) As String
+        Dim parsedVersion As Version = Nothing
+        If Not Version.TryParse(versionText.Trim(), parsedVersion) Then Return "version unavailable"
+
+        Return String.Format("{0}.{1}.{2}.{3}",
+                             parsedVersion.Major,
+                             parsedVersion.Minor,
+                             Math.Max(parsedVersion.Build, 0),
+                             Math.Max(parsedVersion.Revision, 0))
     End Function
 
     Private Shared Function WikiEncode(value As String) As String
