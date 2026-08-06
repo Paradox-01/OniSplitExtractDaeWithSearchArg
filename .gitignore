@@ -1,0 +1,53 @@
+icon.psd
+offline wiki pages
+*.lnk
+DefaultTestEnvironment.txt
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+
+# Visual Studio files
+.vs/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# VB.NET generated files
+*.vbproj.user
+
+# NuGet
+*.nupkg
+packages/
+.nuget/
+project.lock.json
+project.assets.json
+
+# Test results and coverage
+[Tt]est[Rr]esult*/
+[Cc]overage[Rr]esult*/
+*.coverage
+*.coveragexml
+coverage/
+
+# Logs
+*.log
+*.binlog
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+.vscode/
+.idea/
